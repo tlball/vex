@@ -52,6 +52,7 @@ void drivercontrol() {
 
 int main() {
   // Do not adjust the lines below
+  vexcodeInit();
 
   // Set up (but don't start) callbacks for autonomous and driver control
   // periods.
