@@ -7,14 +7,15 @@
 // ---- START VEXCODE CONFIGURED DEVICES ----
 // Robot Configuration:
 // [Name]               [Type]        [Port(s)]
-// Motor_Left           motor         1               
-// Motor_Right          motor         2               
+// Motor_Left           motor         3               
+// Motor_Right          motor         4               
 // Left_Arm             motor         9               
 // Left_Grabber         motor         10              
 // Right_Arm            motor         19              
 // Right_Grabber        motor         20              
 // Controller1          controller                    
 // Controller2          controller                    
+// Drivetrain           drivetrain    1, 2            
 // ---- END VEXCODE CONFIGURED DEVICES ----
 using namespace vex;
 
