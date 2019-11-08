@@ -1,3 +1,33 @@
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Drivetrain           drivetrain    1, 11           
+// Controller1          controller                    
+// Arm                  motor         10              
+// Claw                 motor         20              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Drivetrain           drivetrain    1, 11           
+// Controller1          controller                    
+// Arm                  motor         10              
+// Motor20              motor         20              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Drivetrain           drivetrain    1, 11
+// Controller1          controller
+// Arm                  motor         10
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Drivetrain           drivetrain    1, 11
+// Controller1          controller
+// Arm                  motor         10
+// ---- END VEXCODE CONFIGURED DEVICES ----
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
 /*    Module:       main.cpp                                                  */
@@ -10,9 +40,9 @@
 // ---- START VEXCODE CONFIGURED DEVICES ----
 // Robot Configuration:
 // [Name]               [Type]        [Port(s)]
-// Drivetrain           drivetrain    1, 11           
-// Controller1          controller                    
-// Controller2          controller                    
+// Drivetrain           drivetrain    1, 11
+// Controller1          controller
+// Controller2          controller
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
@@ -79,7 +109,21 @@ void usercontrol(void) {
     // Insert user code here. This is where you use the joystick values to
     // update your motors, etc.
     // ........................................................................
-
+    if (Controller1.ButtonR2.pressing()) {
+      Arm.spin(forward);
+    } else if (Controller1.ButtonR1.pressing()) {
+      Arm.spin(reverse);
+    }else{
+      Arm.setStopping(brake);
+      Arm.stop();
+    }
+ if (Controller1.ButtonL2.pressing()) {
+      Claw.spin(forward);
+    } else if (Controller1.ButtonL1.pressing()) {
+      Claw.spin(reverse);
+    }else{
+      Claw.stop();
+    }
     wait(20, msec); // Sleep the task for a short amount of time to
                     // prevent wasted resources.
   }
