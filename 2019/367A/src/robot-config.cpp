@@ -9,11 +9,12 @@ brain  Brain;
 
 // VEXcode device constructors
 motor LeftDriveSmart = motor(PORT1, ratio18_1, false);
-motor RightDriveSmart = motor(PORT11, ratio18_1, true);
+motor RightDriveSmart = motor(PORT2, ratio18_1, true);
 drivetrain Drivetrain = drivetrain(LeftDriveSmart, RightDriveSmart, 319.19, 295, 130, mm, 1);
 controller Controller1 = controller(primary);
-motor Arm = motor(PORT10, ratio18_1, false);
-motor Claw = motor(PORT20, ratio18_1, false);
+motor FlipMotor = motor(PORT10, ratio18_1, false);
+motor Rightintake = motor(PORT9, ratio18_1, true);
+motor Leftintake = motor(PORT3, ratio18_1, false);
 
 // VEXcode generated functions
 // define variables used for controlling motors based on controller inputs
