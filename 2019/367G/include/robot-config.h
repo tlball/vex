@@ -3,14 +3,13 @@ using namespace vex;
 extern brain Brain;
 
 // VEXcode devices
-extern motor Motor_Left;
-extern motor Motor_Right;
-extern motor Left_Arm;
-extern motor Left_Grabber;
-extern motor Right_Arm;
-extern motor Right_Grabber;
-extern controller Controller1;
 extern drivetrain Drivetrain;
+extern controller Controller1;
+extern motor LeftArm;
+extern motor RighttArm;
+extern motor LeftGrabber;
+extern motor RightGrabber;
+extern motor Pusher;
 
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Text.

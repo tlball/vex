@@ -1,81 +1,157 @@
+/*----------------------------------------------------------------------------*/
+/*                                                                            */
+/*    Module:       main.cpp                                                  */
+/*    Author:       VEX                                                       */
+/*    Created:      Thu Sep 26 2019                                           */
+/*    Description:  Competition Template                                      */
+/*                                                                            */
+/*----------------------------------------------------------------------------*/
+
 // ---- START VEXCODE CONFIGURED DEVICES ----
 // Robot Configuration:
 // [Name]               [Type]        [Port(s)]
-// Motor_Left           motor         3               
-// Motor_Right          motor         4               
-// Left_Arm             motor         9               
-// Left_Grabber         motor         10              
-// Right_Arm            motor         19              
-// Right_Grabber        motor         20              
-// Controller1          controller                    
 // Drivetrain           drivetrain    1, 2            
+// Controller1          controller                    
+// LeftArm              motor         19              
+// RighttArm            motor         9               
+// LeftGrabber          motor         20              
+// RightGrabber         motor         10              
+// Pusher               motor         11              
 // ---- END VEXCODE CONFIGURED DEVICES ----
-// VEX V5 C++ Project with Competition Template
+
 #include "vex.h"
 
-#include "cube_commands.cpp"
-#include "driver_commands.cpp"
-
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Motor_Left           motor         3               
-// Motor_Right          motor         4               
-// Left_Arm             motor         9               
-// Left_Grabber         motor         10              
-// Right_Arm            motor         19              
-// Right_Grabber        motor         20              
-// Controller1          controller                    
-// Controller2          controller                    
-// Drivetrain           drivetrain    1, 2            
-// ---- END VEXCODE CONFIGURED DEVICES ----
 using namespace vex;
 
-// Creates a competition object that allows access to Competition methods.
-vex::competition Competition;
+// A global instance of competition
+competition Competition;
 
-void pre_auton() {
-  // All activities that occur before competition start
-  // Example: setting initial positions
-}
+// define your global instances of motors and other devices here
+motor_group Arms = motor_group(LeftArm, RighttArm);
+controller Controller2 = controller(partner); 
+motor_group Grabbers = motor_group(LeftGrabber,RightGrabber); 
 
-void autonomous() {
-  // Place autonomous code here
-  Motor_Left.rotateTo(-2, vex::rotationUnits::rev, 50, vex::velocityUnits::pct,
-                      false);
-  Motor_Right.rotateTo(-2, vex::rotationUnits::rev, 50, vex::velocityUnits::pct,
-                       true);
-  Motor_Left.stop(vex::brakeType::hold);
-  Motor_Right.stop(vex::brakeType::hold);
-}
 
-void drivercontrol() {
-  // Place drive control code here, inside the loop
-  while (true) {
-    // This is the main loop for the driver control.
-    // Each time through the loop you should update motor
-    // movements based on input from the controller.
+void grabberButtons() {
+  //// Grabber controls
 
-    // Left grabber, botton L1
-    tankDrive();
-    grabberButtons();
-    armButtons();
+  // Left, top button spins grabbers
+  // Right, top button spins grabbers in reverse
+  // Stop grabbers when buttons aren't pressed
+  if (Controller2.ButtonL1.pressing()) {
+    // Left and Right grabbers run forward when pressing L1
+    Grabbers.spin(vex::directionType::fwd, 25, vex::velocityUnits::pct);
+  } else if (Controller2.ButtonR1.pressing()) {
+    // Left and Right grabbers run in reverse when pressing R1
+    Grabbers.spin(vex::directionType::rev, 25, vex::velocityUnits::pct);
+  } else {
+    // Stop motors if neither button pressed
+    Grabbers.stop();
   }
 }
 
-int main() {
-  // Do not adjust the lines below
+void armButtons() {
+  if (Controller2.ButtonL2.pressing()) {
+    // Left and Right arms move up when pressing L2
+    Arms.spin(vex::directionType::fwd, 25, vex::velocityUnits::pct);
+  } else if (Controller2.ButtonR2.pressing()) {
+    // Left and Right arms move down when pressing R2
+    Arms.spin(vex::directionType::rev, 25, vex::velocityUnits::pct);
+  } else {
+    // Stop motors if neither button pressed
+    Arms.stop();
+  }
+}
+
+void pusherButtons() {
+  if (Controller2.ButtonX.pressing()) {
+    // Pusher moves forward
+    Pusher.spin(vex::directionType::fwd, 25, vex::velocityUnits::pct);
+  } else if (Controller2.ButtonB.pressing()) {
+    // Pusher moves back 
+    Pusher.spin(vex::directionType::rev, 25, vex::velocityUnits::pct);
+  } else {
+    // Stop motor if neither button pressed
+    Pusher.stop();
+  }
+}
+
+/*---------------------------------------------------------------------------*/
+/*                          Pre-Autonomous Functions                         */
+/*                                                                           */
+/*  You may want to perform some actions before the competition starts.      */
+/*  Do them in the following function.  You must return from this function   */
+/*  or the autonomous and usercontrol tasks will not be started.  This       */
+/*  function is only called once after the V5 has been powered on and        */
+/*  not every time that the robot is disabled.                               */
+/*---------------------------------------------------------------------------*/
+
+void pre_auton(void) {
+  // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
 
-  // Set up (but don't start) callbacks for autonomous and driver control
-  // periods.
+  // All activities that occur before the competition starts
+  // Example: clearing encoders, setting servo positions, ...
+}
+
+/*---------------------------------------------------------------------------*/
+/*                                                                           */
+/*                              Autonomous Task                              */
+/*                                                                           */
+/*  This task is used to control your robot during the autonomous phase of   */
+/*  a VEX Competition.                                                       */
+/*                                                                           */
+/*  You must modify the code to add your own robot specific commands here.   */
+/*---------------------------------------------------------------------------*/
+
+void autonomous(void) {
+  // ..........................................................................
+  // Insert autonomous user code here.
+  // ..........................................................................
+}
+
+/*---------------------------------------------------------------------------*/
+/*                                                                           */
+/*                              User Control Task                            */
+/*                                                                           */
+/*  This task is used to control your robot during the user control phase of */
+/*  a VEX Competition.                                                       */
+/*                                                                           */
+/*  You must modify the code to add your own robot specific commands here.   */
+/*---------------------------------------------------------------------------*/
+
+void usercontrol(void) {
+  // User control code here, inside the loop
+  while (1) {
+    // This is the main execution loop for the user control program.
+    // Each time through the loop your program should update motor + servo
+    // values based on feedback from the joysticks.
+
+    // ........................................................................
+    // Insert user code here. This is where you use the joystick values to
+    // update your motors, etc.
+    // ........................................................................
+    grabberButtons();
+    armButtons();
+    pusherButtons();
+    wait(20, msec); // Sleep the task for a short amount of time to
+                    // prevent wasted resources.
+  }
+}
+
+//
+// Main will set up the competition functions and callbacks.
+//
+int main() {
+  // Set up callbacks for autonomous and driver control periods.
   Competition.autonomous(autonomous);
-  Competition.drivercontrol(drivercontrol);
+  Competition.drivercontrol(usercontrol);
 
   // Run the pre-autonomous function.
   pre_auton();
 
-
-  // Robot Mesh Studio runtime continues to run until all threads and
-  // competition callbacks are finished.
+  // Prevent main from exiting with an infinite loop.
+  while (true) {
+    wait(100, msec);
+  }
 }
