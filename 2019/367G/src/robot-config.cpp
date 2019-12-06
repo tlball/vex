@@ -15,7 +15,6 @@ motor Left_Grabber = motor(PORT10, ratio18_1, true);
 motor Right_Arm = motor(PORT19, ratio18_1, false);
 motor Right_Grabber = motor(PORT20, ratio18_1, false);
 controller Controller1 = controller(primary);
-controller Controller2 = controller(partner);
 motor LeftDriveSmart = motor(PORT1, ratio18_1, false);
 motor RightDriveSmart = motor(PORT2, ratio18_1, true);
 drivetrain Drivetrain = drivetrain(LeftDriveSmart, RightDriveSmart, 319.19, 295, 130, mm, 1);
@@ -77,57 +76,6 @@ int rc_auto_loop_callback_Controller1() {
   return 0;
 }
 
-// define variables used for controlling motors based on controller inputs
-bool Controller2LeftShoulderControlMotorsStopped = true;
-bool Controller2RightShoulderControlMotorsStopped = true;
-bool Controller2XBButtonsControlMotorsStopped = true;
-
-// define a task that will handle monitoring inputs from Controller2
-int rc_auto_loop_callback_Controller2() {
-  // process the controller input every 20 milliseconds
-  // update the motors based on the input values
-  while(true) {
-    // check the ButtonL1/ButtonL2 status to control Right_Arm
-    if (Controller2.ButtonL1.pressing()) {
-      Right_Arm.spin(forward);
-      Controller2LeftShoulderControlMotorsStopped = false;
-    } else if (Controller2.ButtonL2.pressing()) {
-      Right_Arm.spin(reverse);
-      Controller2LeftShoulderControlMotorsStopped = false;
-    } else if (!Controller2LeftShoulderControlMotorsStopped) {
-      Right_Arm.stop();
-      // set the toggle so that we don't constantly tell the motor to stop when the buttons are released
-      Controller2LeftShoulderControlMotorsStopped = true;
-    }
-    // check the ButtonR1/ButtonR2 status to control Motor_Right
-    if (Controller2.ButtonR1.pressing()) {
-      Motor_Right.spin(forward);
-      Controller2RightShoulderControlMotorsStopped = false;
-    } else if (Controller2.ButtonR2.pressing()) {
-      Motor_Right.spin(reverse);
-      Controller2RightShoulderControlMotorsStopped = false;
-    } else if (!Controller2RightShoulderControlMotorsStopped) {
-      Motor_Right.stop();
-      // set the toggle so that we don't constantly tell the motor to stop when the buttons are released
-      Controller2RightShoulderControlMotorsStopped = true;
-    }
-    // check the X/B buttons status to control Motor_Left
-    if (Controller2.ButtonX.pressing()) {
-      Motor_Left.spin(forward);
-      Controller2XBButtonsControlMotorsStopped = false;
-    } else if (Controller2.ButtonB.pressing()) {
-      Motor_Left.spin(reverse);
-      Controller2XBButtonsControlMotorsStopped = false;
-    } else if (!Controller2XBButtonsControlMotorsStopped){
-      Motor_Left.stop();
-      Controller2XBButtonsControlMotorsStopped = true;
-    }
-    // wait before repeating the process
-    wait(20, msec);
-  }
-  return 0;
-}
-
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Text.
  * 
@@ -135,5 +83,4 @@ int rc_auto_loop_callback_Controller2() {
  */
 void vexcodeInit( void ) {
   task rc_auto_loop_task_Controller1(rc_auto_loop_callback_Controller1);
-  task rc_auto_loop_task_Controller2(rc_auto_loop_callback_Controller2);
 }

@@ -10,7 +10,6 @@ extern motor Left_Grabber;
 extern motor Right_Arm;
 extern motor Right_Grabber;
 extern controller Controller1;
-extern controller Controller2;
 extern drivetrain Drivetrain;
 
 /**
