@@ -1,3 +1,181 @@
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Controller1          controller                    
+// Drivetrain           drivetrain    1, 2            
+// RightGrabber         motor         10              
+// RightArm             motor         6               
+// LeftGrabber          motor         20              
+// LeftArm              motor         16              
+// Pusher               motor         11              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Controller1          controller                    
+// Drivetrain           drivetrain    1, 2            
+// RightGrabber         motor         10              
+// RightArm             motor         6               
+// LeftGrabber          motor         20              
+// LeftArm              motor         16              
+// Pusher               motor         11              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Controller1          controller                    
+// Drivetrain           drivetrain    1, 2            
+// RightGrabber         motor         10              
+// RightArm             motor         6               
+// LeftGrabber          motor         20              
+// LeftArm              motor         16              
+// Pusher               motor         11              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Controller1          controller                    
+// Drivetrain           drivetrain    1, 2            
+// RightGrabber         motor         10              
+// RightArm             motor         6               
+// LeftGrabber          motor         20              
+// LeftArm              motor         16              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Controller1          controller                    
+// Drivetrain           drivetrain    1, 2            
+// RightGrabber         motor         10              
+// RightArm             motor         6               
+// LeftGrabber          motor         20              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Controller1          controller                    
+// Drivetrain           drivetrain    1, 2            
+// RightGrabber         motor         10              
+// RightArm             motor         6               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Controller1          controller                    
+// Drivetrain           drivetrain    1, 2            
+// RightGrabber         motor         10              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Controller1          controller                    
+// Drivetrain           drivetrain    1, 2            
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Right_Grabber        motor         20              
+// Controller1          controller                    
+// Drivetrain           drivetrain    1, 2            
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// LeftGrabber          motor         10              
+// Right_Grabber        motor         20              
+// Controller1          controller                    
+// Drivetrain           drivetrain    1, 2            
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// LeftGrabber          motor         10              
+// Right_Arm            motor         16              
+// Right_Grabber        motor         20              
+// Controller1          controller                    
+// Drivetrain           drivetrain    1, 2            
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Left_Arm             motor         9               
+// LeftGrabber          motor         10              
+// Right_Arm            motor         16              
+// Right_Grabber        motor         20              
+// Controller1          controller                    
+// Drivetrain           drivetrain    1, 2            
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// RightArm             motor         6               
+// Left_Arm             motor         9               
+// LeftGrabber          motor         10              
+// Right_Arm            motor         16              
+// Right_Grabber        motor         20              
+// Controller1          controller                    
+// Drivetrain           drivetrain    1, 2            
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// LeftArm              motor         3               
+// RightArm             motor         6               
+// Left_Arm             motor         9               
+// LeftGrabber          motor         10              
+// Right_Arm            motor         16              
+// Right_Grabber        motor         20              
+// Controller1          controller                    
+// Drivetrain           drivetrain    1, 2            
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// LeftArm              motor         3               
+// RightArm             motor         6               
+// Left_Arm             motor         9               
+// Left_Grabber         motor         10              
+// Right_Arm            motor         16              
+// Right_Grabber        motor         20              
+// Controller1          controller                    
+// Drivetrain           drivetrain    1, 2            
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// LeftArm              motor         3               
+// Motor_Right          motor         6               
+// Left_Arm             motor         9               
+// Left_Grabber         motor         10              
+// Right_Arm            motor         16              
+// Right_Grabber        motor         20              
+// Controller1          controller                    
+// Drivetrain           drivetrain    1, 2            
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Motor_Left           motor         3               
+// Motor_Right          motor         6               
+// Left_Arm             motor         9               
+// Left_Grabber         motor         10              
+// Right_Arm            motor         16              
+// Right_Grabber        motor         20              
+// Controller1          controller                    
+// Drivetrain           drivetrain    1, 2            
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Motor_Left           motor         3               
+// Motor_Right          motor         4               
+// Left_Arm             motor         9               
+// Left_Grabber         motor         10              
+// Right_Arm            motor         16              
+// Right_Grabber        motor         20              
+// Controller1          controller                    
+// Drivetrain           drivetrain    1, 2            
+// ---- END VEXCODE CONFIGURED DEVICES ----
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
 /*    Module:       main.cpp                                                  */
@@ -27,7 +205,7 @@ using namespace vex;
 competition Competition;
 
 // define your global instances of motors and other devices here
-motor_group Arms = motor_group(LeftArm, RighttArm);
+motor_group Arms = motor_group(LeftArm, RightArm);
 controller Controller2 = controller(partner); 
 motor_group Grabbers = motor_group(LeftGrabber,RightGrabber); 
 
@@ -40,10 +218,10 @@ void grabberButtons() {
   // Stop grabbers when buttons aren't pressed
   if (Controller2.ButtonL1.pressing()) {
     // Left and Right grabbers run forward when pressing L1
-    Grabbers.spin(vex::directionType::fwd, 25, vex::velocityUnits::pct);
+    Grabbers.spin(vex::directionType::fwd, 55, vex::velocityUnits::pct);
   } else if (Controller2.ButtonR1.pressing()) {
     // Left and Right grabbers run in reverse when pressing R1
-    Grabbers.spin(vex::directionType::rev, 25, vex::velocityUnits::pct);
+    Grabbers.spin(vex::directionType::rev, 55, vex::velocityUnits::pct);
   } else {
     // Stop motors if neither button pressed
     Grabbers.stop();
@@ -59,17 +237,17 @@ void armButtons() {
     Arms.spin(vex::directionType::rev, 25, vex::velocityUnits::pct);
   } else {
     // Stop motors if neither button pressed
-    Arms.stop();
+    Arms.stop(hold);
   }
 }
 
 void pusherButtons() {
   if (Controller2.ButtonX.pressing()) {
     // Pusher moves forward
-    Pusher.spin(vex::directionType::fwd, 25, vex::velocityUnits::pct);
+    Pusher.spin(vex::directionType::fwd, 45, vex::velocityUnits::pct);
   } else if (Controller2.ButtonB.pressing()) {
     // Pusher moves back 
-    Pusher.spin(vex::directionType::rev, 25, vex::velocityUnits::pct);
+    Pusher.spin(vex::directionType::rev, 45, vex::velocityUnits::pct);
   } else {
     // Stop motor if neither button pressed
     Pusher.stop();
