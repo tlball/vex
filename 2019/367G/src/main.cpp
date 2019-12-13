@@ -53,10 +53,10 @@ void grabberButtons() {
 void armButtons() {
   if (Controller2.ButtonL2.pressing()) {
     // Left and Right arms move up when pressing L2
-    Arms.spin(vex::directionType::fwd, 25, vex::velocityUnits::pct);
+    Arms.spin(forward, 35, percent);
   } else if (Controller2.ButtonR2.pressing()) {
     // Left and Right arms move down when pressing R2
-    Arms.spin(vex::directionType::rev, 25, vex::velocityUnits::pct);
+    Arms.spin(reverse, 35, percent);
   } else {
     // Stop motors if neither button pressed
     Arms.stop(hold);
