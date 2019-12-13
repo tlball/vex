@@ -38,10 +38,10 @@ void grabberButtons() {
   // Left, top button spins grabbers
   // Right, top button spins grabbers in reverse
   // Stop grabbers when buttons aren't pressed
-  if (Controller2.ButtonL1.pressing()) {
+  if (Controller2.ButtonR1.pressing()) {
     // Left and Right grabbers run forward when pressing L1
     Grabbers.spin(vex::directionType::fwd, 55, vex::velocityUnits::pct);
-  } else if (Controller2.ButtonR1.pressing()) {
+  } else if (Controller2.ButtonR2.pressing()) {
     // Left and Right grabbers run in reverse when pressing R1
     Grabbers.spin(vex::directionType::rev, 55, vex::velocityUnits::pct);
   } else {
@@ -51,10 +51,10 @@ void grabberButtons() {
 }
 
 void armButtons() {
-  if (Controller2.ButtonL2.pressing()) {
+  if (Controller2.ButtonL1.pressing()) {
     // Left and Right arms move up when pressing L2
     Arms.spin(forward, 35, percent);
-  } else if (Controller2.ButtonR2.pressing()) {
+  } else if (Controller2.ButtonL2.pressing()) {
     // Left and Right arms move down when pressing R2
     Arms.spin(reverse, 35, percent);
   } else {
