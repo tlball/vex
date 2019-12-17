@@ -53,10 +53,10 @@ void grabberButtons() {
 void armButtons() {
   if (Controller2.ButtonL1.pressing()) {
     // Left and Right arms move up when pressing L2
-    Arms.spin(forward, 35, percent);
+    Arms.spin(reverse, 35, percent);
   } else if (Controller2.ButtonL2.pressing()) {
     // Left and Right arms move down when pressing R2
-    Arms.spin(reverse, 35, percent);
+    Arms.spin(forward, 35, percent);
   } else {
     // Stop motors if neither button pressed
     Arms.stop(hold);
@@ -108,6 +108,10 @@ void autonomous(void) {
   // ..........................................................................
   // Insert autonomous user code here.
   // ..........................................................................
+  Drivetrain.setDriveVelocity(75, percent);
+  Drivetrain.driveFor(-25, vex::distanceUnits::in);
+  wait(3, msec);
+  Drivetrain.driveFor(14, vex::distanceUnits::in);
 }
 
 /*---------------------------------------------------------------------------*/
