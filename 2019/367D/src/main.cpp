@@ -1,3 +1,65 @@
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Controller1          controller                    
+// left_lift            motor         1               
+// right_lift           motor         10              
+// Drivetrain           drivetrain    11, 12, 18, 20  
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Controller1          controller                    
+// left_lift            motor         1               
+// right_lift           motor         10              
+// Drivetrain           drivetrain    11, 12, 19, 20  
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Controller1          controller                    
+// left_lift            motor         1               
+// right_lift           motor         10              
+// Drivetrain           drivetrain    11, 12, 19, 20  
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Controller1          controller                    
+// left_lift            motor         1               
+// right_lift           motor         10              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Drivetrain           drivetrain    19, 20          
+// Controller1          controller                    
+// left_lift            motor         1               
+// right_lift           motor         10              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Drivetrain           drivetrain    19, 20          
+// Controller1          controller                    
+// left_lift            motor         1               
+// right_lift           motor         10              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Drivetrain           drivetrain    19, 20          
+// Controller1          controller                    
+// left_lift            motor         1               
+// rightlift            motor         10              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Drivetrain           drivetrain    19, 20          
+// Controller1          controller                    
+// left_lift            motor         1               
+// ---- END VEXCODE CONFIGURED DEVICES ----
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
 /*    Module:       main.cpp                                                  */
@@ -22,6 +84,8 @@ using namespace vex;
 competition Competition;
 
 // define your global instances of motors and other devices here
+motor_group lift = motor_group(left_lift,right_lift);
+
 
 /*---------------------------------------------------------------------------*/
 /*                          Pre-Autonomous Functions                         */
@@ -78,6 +142,16 @@ void usercontrol(void) {
     // Insert user code here. This is where you use the joystick values to
     // update your motors, etc.
     // ........................................................................
+
+if(Controller1.ButtonR1.pressing()) {
+    lift.setVelocity(75, percent);
+  lift.spin(reverse);
+} else if(Controller1.ButtonR2.pressing()){
+  lift.setVelocity(75, percent);
+  lift.spin(forward);
+} else {
+  lift.stop();
+}
 
     wait(20, msec); // Sleep the task for a short amount of time to
                     // prevent wasted resources.
