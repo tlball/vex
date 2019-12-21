@@ -1,37 +1,3 @@
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// Drivetrain           drivetrain    1, 2            
-// RightGrabber         motor         8               
-// RightArm             motor         6               
-// LeftGrabber          motor         18              
-// LeftArm              motor         16              
-// Pusher               motor         11              
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// Drivetrain           drivetrain    1, 2            
-// RightGrabber         motor         8               
-// RightArm             motor         6               
-// LeftGrabber          motor         19              
-// LeftArm              motor         16              
-// Pusher               motor         11              
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// Drivetrain           drivetrain    1, 2            
-// RightGrabber         motor         9              
-// RightArm             motor         6               
-// LeftGrabber          motor         19              
-// LeftArm              motor         16              
-// Pusher               motor         11              
-// ---- END VEXCODE CONFIGURED DEVICES ----
-
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
 /*    Module:       main.cpp                                                  */
@@ -41,6 +7,9 @@
 /*                                                                            */
 /*----------------------------------------------------------------------------*/
 
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// ---- END VEXCODE CONFIGURED DEVICES ----
+
 #include "vex.h"
 
 using namespace vex;
@@ -49,54 +18,6 @@ using namespace vex;
 competition Competition;
 
 // define your global instances of motors and other devices here
-motor_group Arms = motor_group(LeftArm, RightArm);
-controller Controller2 = controller(partner); 
-motor_group Grabbers = motor_group(LeftGrabber,RightGrabber); 
-
-
-void grabberButtons() {
-  //// Grabber controls
-
-  // Left, top button spins grabbers
-  // Right, top button spins grabbers in reverse
-  // Stop grabbers when buttons aren't pressed
-  if (Controller2.ButtonR1.pressing()) {
-    // Left and Right grabbers run forward when pressing L1
-    Grabbers.spin(vex::directionType::rev, 55, vex::velocityUnits::pct);
-  } else if (Controller2.ButtonR2.pressing()) {
-    // Left and Right grabbers run in reverse when pressing R1
-    Grabbers.spin(vex::directionType::fwd, 55, vex::velocityUnits::pct);
-  } else {
-    // Stop motors if neither button pressed
-    Grabbers.stop();
-  }
-}
-
-void armButtons() {
-  if (Controller2.ButtonL1.pressing()) {
-    // Left and Right arms move up when pressing L2
-    Arms.spin(reverse, 35, percent);
-  } else if (Controller2.ButtonL2.pressing()) {
-    // Left and Right arms move down when pressing R2
-    Arms.spin(forward, 35, percent);
-  } else {
-    // Stop motors if neither button pressed
-    Arms.stop(hold);
-  }
-}
-
-void pusherButtons() {
-  if (Controller2.ButtonX.pressing()) {
-    // Pusher moves forward
-    Pusher.spin(vex::directionType::fwd, 30, vex::velocityUnits::pct);
-  } else if (Controller2.ButtonB.pressing()) {
-    // Pusher moves back 
-    Pusher.spin(vex::directionType::rev, 30, vex::velocityUnits::pct);
-  } else {
-    // Stop motor if neither button pressed
-    Pusher.stop();
-  }
-}
 
 /*---------------------------------------------------------------------------*/
 /*                          Pre-Autonomous Functions                         */
@@ -130,10 +51,6 @@ void autonomous(void) {
   // ..........................................................................
   // Insert autonomous user code here.
   // ..........................................................................
-  Drivetrain.setDriveVelocity(75, percent);
-  Drivetrain.driveFor(-25, vex::distanceUnits::in);
-  wait(3, msec);
-  Drivetrain.driveFor(14, vex::distanceUnits::in);
 }
 
 /*---------------------------------------------------------------------------*/
@@ -157,9 +74,7 @@ void usercontrol(void) {
     // Insert user code here. This is where you use the joystick values to
     // update your motors, etc.
     // ........................................................................
-    grabberButtons();
-    armButtons();
-    pusherButtons();
+
     wait(20, msec); // Sleep the task for a short amount of time to
                     // prevent wasted resources.
   }

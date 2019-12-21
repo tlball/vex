@@ -1,3 +1,0 @@
-# Ignore files created by the build. Should recreate locally before transferring to the robot.
-/build/*
-compile_commands.json
