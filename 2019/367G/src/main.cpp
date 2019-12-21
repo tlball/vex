@@ -88,10 +88,10 @@ void armButtons() {
 void pusherButtons() {
   if (Controller2.ButtonX.pressing()) {
     // Pusher moves forward
-    Pusher.spin(vex::directionType::fwd, 45, vex::velocityUnits::pct);
+    Pusher.spin(vex::directionType::fwd, 30, vex::velocityUnits::pct);
   } else if (Controller2.ButtonB.pressing()) {
     // Pusher moves back 
-    Pusher.spin(vex::directionType::rev, 45, vex::velocityUnits::pct);
+    Pusher.spin(vex::directionType::rev, 30, vex::velocityUnits::pct);
   } else {
     // Stop motor if neither button pressed
     Pusher.stop();
