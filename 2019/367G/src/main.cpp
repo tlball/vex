@@ -1,37 +1,3 @@
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// Drivetrain           drivetrain    1, 2            
-// RightGrabber         motor         8               
-// RightArm             motor         6               
-// LeftGrabber          motor         18              
-// LeftArm              motor         16              
-// Pusher               motor         11              
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// Drivetrain           drivetrain    1, 2            
-// RightGrabber         motor         8               
-// RightArm             motor         6               
-// LeftGrabber          motor         19              
-// LeftArm              motor         16              
-// Pusher               motor         11              
-// ---- END VEXCODE CONFIGURED DEVICES ----
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// Controller1          controller                    
-// Drivetrain           drivetrain    1, 2            
-// RightGrabber         motor         9              
-// RightArm             motor         6               
-// LeftGrabber          motor         19              
-// LeftArm              motor         16              
-// Pusher               motor         11              
-// ---- END VEXCODE CONFIGURED DEVICES ----
-
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
 /*    Module:       main.cpp                                                  */
@@ -50,9 +16,8 @@ competition Competition;
 
 // define your global instances of motors and other devices here
 motor_group Arms = motor_group(LeftArm, RightArm);
-controller Controller2 = controller(partner); 
-motor_group Grabbers = motor_group(LeftGrabber,RightGrabber); 
-
+controller Controller2 = controller(partner);
+motor_group Grabbers = motor_group(LeftGrabber, RightGrabber);
 
 void grabberButtons() {
   //// Grabber controls
@@ -90,7 +55,7 @@ void pusherButtons() {
     // Pusher moves forward
     Pusher.spin(vex::directionType::fwd, 30, vex::velocityUnits::pct);
   } else if (Controller2.ButtonB.pressing()) {
-    // Pusher moves back 
+    // Pusher moves back
     Pusher.spin(vex::directionType::rev, 30, vex::velocityUnits::pct);
   } else {
     // Stop motor if neither button pressed
@@ -125,15 +90,52 @@ void pre_auton(void) {
 /*                                                                           */
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
+void stacker(void) {
+
+  Drivetrain.stop(hold);
+  Pusher.spin(vex::directionType::rev, 30, vex::velocityUnits::pct);
+  Grabbers.spin(vex::directionType::fwd, 55, vex::velocityUnits::pct);
+  wait(500, msec);
+  Pusher.stop();
+  wait(300, msec);
+  Drivetrain.driveFor(-14, vex::distanceUnits::in);
+  Grabbers.stop();
+  wait(500, msec);
+  Pusher.spin(vex::directionType::fwd, 70, vex::velocityUnits::pct);
+  wait(500, msec);
+  Pusher.stop();
+}
+
+void pickerupper(void) {
+  Grabbers.spin(vex::directionType::rev, 55, vex::velocityUnits::pct);
+  Drivetrain.driveFor(forward, 39, inches, 20, velocityUnits::pct, true);
+  Drivetrain.stop(hold);
+  wait(500, msec);
+  Grabbers.stop();
+  // Drivetrain.driveFor(reverse, 39, inches, 50, velocityUnits::pct, true);
+  Drivetrain.turnFor(-110, degrees);
+  Drivetrain.driveFor(forward, 40, inches, 50, velocityUnits::pct, true);
+  Drivetrain.stop(hold);
+  wait(300, msec);
+}
 
 void autonomous(void) {
   // ..........................................................................
   // Insert autonomous user code here.
   // ..........................................................................
-  Drivetrain.setDriveVelocity(75, percent);
-  Drivetrain.driveFor(-25, vex::distanceUnits::in);
-  wait(3, msec);
-  Drivetrain.driveFor(14, vex::distanceUnits::in);
+  // Drivetrain.driveFor(forward, 36, inches, 50, velocityUnits::pct, true);
+  // Arms.spinFor(reverse, 5, rotationUnits::rev, 75, velocityUnits::pct);
+  // Grabbers.spinFor(forward, 5, rotationUnits::rev, 75, velocityUnits::pct);
+
+  pickerupper();
+  stacker();
+  
+  //// Current working autonomous
+  // Drivetrain.setDriveVelocity(75, percent);
+  // Drivetrain.driveFor(25, vex::distanceUnits::in);
+  // wait(3, msec);
+  // Drivetrain.setDriveVelocity(35, percent);
+  // Drivetrain.driveFor(-14, vex::distanceUnits::in);
 }
 
 /*---------------------------------------------------------------------------*/
