@@ -93,7 +93,7 @@ void pre_auton(void) {
 void stacker(void) {
 
   Drivetrain.stop(hold);
-  Pusher.spin(vex::directionType::rev, 30, vex::velocityUnits::pct);
+  Pusher.spin(vex::directionType::rev, 25, vex::velocityUnits::pct);
   Grabbers.spin(vex::directionType::fwd, 55, vex::velocityUnits::pct);
   wait(500, msec);
   Pusher.stop();
@@ -113,10 +113,15 @@ void pickerupper(void) {
   wait(500, msec);
   Grabbers.stop();
   // Drivetrain.driveFor(reverse, 39, inches, 50, velocityUnits::pct, true);
-  Drivetrain.turnFor(-110, degrees);
-  Drivetrain.driveFor(forward, 40, inches, 50, velocityUnits::pct, true);
+  Drivetrain.turnFor(-120, degrees);
+  Drivetrain.driveFor(forward, 25, inches, 50, velocityUnits::pct, true);
   Drivetrain.stop(hold);
   wait(300, msec);
+}
+
+void armsup(void) {
+  Arms.spin(vex::directionType::rev, 20, velocityUnits::pct);
+  Grabbers.spin(vex::directionType::fwd, 55, vex::velocityUnits::pct);
 }
 
 void autonomous(void) {
