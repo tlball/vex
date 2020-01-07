@@ -37,6 +37,26 @@ void grabberButtons() {
   }
 }
 
+void grabberButtons2() {
+  // Dividing by 2 regulates the speed
+  int pusherSpeed = Controller2.Axis3.position()/2;
+  int grabberSpeed = Controller2.Axis2.position();
+
+  // Deadband is how much leeway you give the joystick
+  int deadband = 5;
+  if(abs(pusherSpeed) <= deadband/2) {
+     pusherSpeed = 0;
+  }
+
+  if(abs(grabberSpeed) <= deadband) {
+    grabberSpeed = 0;
+  }
+
+  Pusher.spin(vex::directionType::rev, pusherSpeed, vex::velocityUnits::pct);
+  Grabbers.spin(vex::directionType::rev, grabberSpeed, vex::velocityUnits::pct);
+
+}
+
 void armButtons() {
   if (Controller2.ButtonL1.pressing()) {
     // Left and Right arms move up when pressing L2
