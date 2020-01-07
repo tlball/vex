@@ -37,24 +37,28 @@ void grabberButtons() {
   }
 }
 
-void grabberButtons2() {
+void pusherJoystick() {
   // Dividing by 2 regulates the speed
-  int pusherSpeed = Controller2.Axis3.position()/2;
-  int grabberSpeed = Controller2.Axis2.position();
+  int pusherSpeed = Controller2.Axis3.position() / 2;
 
   // Deadband is how much leeway you give the joystick
-  int deadband = 5;
-  if(abs(pusherSpeed) <= deadband/2) {
-     pusherSpeed = 0;
+  double deadband = 5 / 2;
+  if (abs(pusherSpeed) <= deadband) {
+    pusherSpeed = 0;
   }
+  Pusher.spin(vex::directionType::rev, pusherSpeed, vex::velocityUnits::pct);
+}
 
-  if(abs(grabberSpeed) <= deadband) {
+void grabberJoystick() {
+
+  int grabberSpeed = Controller2.Axis2.position();
+  int deadband = 5;
+
+  if (abs(grabberSpeed) <= deadband) {
     grabberSpeed = 0;
   }
 
-  Pusher.spin(vex::directionType::rev, pusherSpeed, vex::velocityUnits::pct);
   Grabbers.spin(vex::directionType::rev, grabberSpeed, vex::velocityUnits::pct);
-
 }
 
 void armButtons() {
@@ -155,7 +159,7 @@ void autonomous(void) {
 
   pickerupper();
   stacker();
-  
+
   //// Current working autonomous
   // Drivetrain.setDriveVelocity(75, percent);
   // Drivetrain.driveFor(25, vex::distanceUnits::in);
@@ -185,7 +189,10 @@ void usercontrol(void) {
     // Insert user code here. This is where you use the joystick values to
     // update your motors, etc.
     // ........................................................................
-    grabberButtons();
+    
+    pusherJoystick();
+    grabberJoystick();
+   // grabberButtons();
     armButtons();
     pusherButtons();
     wait(20, msec); // Sleep the task for a short amount of time to
