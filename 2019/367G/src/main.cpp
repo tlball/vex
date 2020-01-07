@@ -134,6 +134,7 @@ void pickerupper(void) {
   Grabbers.stop();
   // Drivetrain.driveFor(reverse, 39, inches, 50, velocityUnits::pct, true);
   Drivetrain.turnFor(-120, degrees);
+  Drivetrain.setTimeout(2, sec);
   Drivetrain.driveFor(forward, 25, inches, 50, velocityUnits::pct, true);
   Drivetrain.stop(hold);
   wait(300, msec);
