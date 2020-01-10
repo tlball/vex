@@ -192,7 +192,7 @@ void usercontrol(void) {
     
     pusherJoystick();
     grabberJoystick();
-   // grabberButtons();
+    grabberButtons();
     armButtons();
     pusherButtons();
     wait(20, msec); // Sleep the task for a short amount of time to
