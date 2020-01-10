@@ -191,8 +191,6 @@ void usercontrol(void) {
     // update your motors, etc.
     // ........................................................................
     
-    pusherJoystick();
-    grabberJoystick();
     grabberButtons();
     armButtons();
     pusherButtons();
