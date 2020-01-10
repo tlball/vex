@@ -79,11 +79,12 @@ void pickerupper(void) {
 
 void armsup(void) {
   Arms.spin(vex::directionType::rev, 20, velocityUnits::pct);
-  wait(500, msec);
+  Grabbers.spin(vex::directionType::fwd, 73, vex::velocityUnits::pct);
+  wait(1000, msec);
   Arms.stop(hold);
-  Grabbers.spin(vex::directionType::fwd, 55, vex::velocityUnits::pct);
+  wait(1000, msec);
   Arms.spin(vex::directionType::fwd, 20, velocityUnits::pct);
-  wait(500, msec);
+  wait(1000, msec);
   Arms.stop(hold);
 }
 
