@@ -19,24 +19,6 @@ motor_group Arms = motor_group(LeftArm, RightArm);
 controller Controller2 = controller(partner);
 motor_group Grabbers = motor_group(LeftGrabber, RightGrabber);
 
-void grabberButtons() {
-  //// Grabber controls
-
-  // Left, top button spins grabbers
-  // Right, top button spins grabbers in reverse
-  // Stop grabbers when buttons aren't pressed
-  if (Controller2.ButtonR1.pressing()) {
-    // Left and Right grabbers run forward when pressing L1
-    Grabbers.spin(vex::directionType::rev, 55, vex::velocityUnits::pct);
-  } else if (Controller2.ButtonR2.pressing()) {
-    // Left and Right grabbers run in reverse when pressing R1
-    Grabbers.spin(vex::directionType::fwd, 55, vex::velocityUnits::pct);
-  } else {
-    // Stop motors if neither button pressed
-    Grabbers.stop();
-  }
-}
-
 void pusherJoystick() {
   // Dividing by 2 regulates the speed
   int pusherSpeed = Controller2.Axis3.position() / 2;
@@ -59,6 +41,24 @@ void grabberJoystick() {
   }
 
   Grabbers.spin(vex::directionType::rev, grabberSpeed, vex::velocityUnits::pct);
+}
+
+void grabberButtons() {
+  //// Grabber controls
+
+  // Left, top button spins grabbers
+  // Right, top button spins grabbers in reverse
+  // Stop grabbers when buttons aren't pressed
+  if (Controller2.ButtonR1.pressing()) {
+    // Left and Right grabbers run forward when pressing L1
+    Grabbers.spin(vex::directionType::rev, 55, vex::velocityUnits::pct);
+  } else if (Controller2.ButtonR2.pressing()) {
+    // Left and Right grabbers run in reverse when pressing R1
+    Grabbers.spin(vex::directionType::fwd, 55, vex::velocityUnits::pct);
+  } else {
+    // Stop motors if neither button pressed
+    grabberJoystick();
+  }
 }
 
 void armButtons() {
