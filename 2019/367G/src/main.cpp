@@ -147,7 +147,12 @@ void pickerupper(void) {
 
 void armsup(void) {
   Arms.spin(vex::directionType::rev, 20, velocityUnits::pct);
+  wait(500, msec);
+  Arms.stop(hold);
   Grabbers.spin(vex::directionType::fwd, 55, vex::velocityUnits::pct);
+  Arms.spin(vex::directionType::fwd, 20, velocityUnits::pct);
+  wait(500, msec);
+  Arms.stop(hold);
 }
 
 void autonomous(void) {
@@ -157,7 +162,7 @@ void autonomous(void) {
   // Drivetrain.driveFor(forward, 36, inches, 50, velocityUnits::pct, true);
   // Arms.spinFor(reverse, 5, rotationUnits::rev, 75, velocityUnits::pct);
   // Grabbers.spinFor(forward, 5, rotationUnits::rev, 75, velocityUnits::pct);
-
+  armsup();
   pickerupper();
   stacker();
 
