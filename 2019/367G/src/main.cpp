@@ -184,6 +184,12 @@ void autonomous(void) {
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
 
+void stackerbuttons() {
+  if(Controller2.ButtonDown.pressing()){
+    stacker();
+  }
+}
+
 void usercontrol(void) {
   // User control code here, inside the loop
   while (1) {
