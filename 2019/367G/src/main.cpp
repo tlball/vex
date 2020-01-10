@@ -202,6 +202,7 @@ void usercontrol(void) {
     // update your motors, etc.
     // ........................................................................
     
+    stackerbuttons();
     grabberButtons();
     armButtons();
     pusherButtons();
