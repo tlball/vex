@@ -51,8 +51,8 @@ void stacker(void) {
 
   Drivetrain.stop(hold);
   Pusher.spin(vex::directionType::rev, 25, vex::velocityUnits::pct);
-  Grabbers.spin(vex::directionType::fwd, 55, vex::velocityUnits::pct);
-  wait(500, msec);
+  Grabbers.spin(vex::directionType::fwd, 41, vex::velocityUnits::pct);
+  wait(1000, msec);
   Pusher.stop();
   wait(300, msec);
   Drivetrain.driveFor(-14, vex::distanceUnits::in);
