@@ -83,9 +83,10 @@ void pusherButtons() {
     Pusher.spin(vex::directionType::rev, 30, vex::velocityUnits::pct);
   } else {
     // Stop motor if neither button pressed
-    Pusher.stop();
+    pusherJoystick();
   }
 }
+
 
 /*---------------------------------------------------------------------------*/
 /*                          Pre-Autonomous Functions                         */
