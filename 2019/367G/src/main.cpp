@@ -19,74 +19,6 @@ motor_group Arms = motor_group(LeftArm, RightArm);
 controller Controller2 = controller(partner);
 motor_group Grabbers = motor_group(LeftGrabber, RightGrabber);
 
-void pusherJoystick() {
-  // Dividing by 2 regulates the speed
-  int pusherSpeed = Controller2.Axis3.position() / 2;
-
-  // Deadband is how much leeway you give the joystick
-  double deadband = 5 / 2;
-  if (abs(pusherSpeed) <= deadband) {
-    pusherSpeed = 0;
-  }
-  Pusher.spin(vex::directionType::rev, pusherSpeed, vex::velocityUnits::pct);
-}
-
-void grabberJoystick() {
-
-  int grabberSpeed = Controller2.Axis2.position();
-  int deadband = 5;
-
-  if (abs(grabberSpeed) <= deadband) {
-    grabberSpeed = 0;
-  }
-
-  Grabbers.spin(vex::directionType::rev, grabberSpeed, vex::velocityUnits::pct);
-}
-
-void grabberButtons() {
-  //// Grabber controls
-
-  // Left, top button spins grabbers
-  // Right, top button spins grabbers in reverse
-  // Stop grabbers when buttons aren't pressed
-  if (Controller2.ButtonR1.pressing()) {
-    // Left and Right grabbers run forward when pressing L1
-    Grabbers.spin(vex::directionType::rev, 55, vex::velocityUnits::pct);
-  } else if (Controller2.ButtonR2.pressing()) {
-    // Left and Right grabbers run in reverse when pressing R1
-    Grabbers.spin(vex::directionType::fwd, 55, vex::velocityUnits::pct);
-  } else {
-    // Stop motors if neither button pressed
-    grabberJoystick();
-  }
-}
-
-void armButtons() {
-  if (Controller2.ButtonL1.pressing()) {
-    // Left and Right arms move up when pressing L2
-    Arms.spin(reverse, 35, percent);
-  } else if (Controller2.ButtonL2.pressing()) {
-    // Left and Right arms move down when pressing R2
-    Arms.spin(forward, 35, percent);
-  } else {
-    // Stop motors if neither button pressed
-    Arms.stop(hold);
-  }
-}
-
-void pusherButtons() {
-  if (Controller2.ButtonX.pressing()) {
-    // Pusher moves forward
-    Pusher.spin(vex::directionType::fwd, 30, vex::velocityUnits::pct);
-  } else if (Controller2.ButtonB.pressing()) {
-    // Pusher moves back
-    Pusher.spin(vex::directionType::rev, 30, vex::velocityUnits::pct);
-  } else {
-    // Stop motor if neither button pressed
-    pusherJoystick();
-  }
-}
-
 
 /*---------------------------------------------------------------------------*/
 /*                          Pre-Autonomous Functions                         */
@@ -183,6 +115,74 @@ void autonomous(void) {
 /*                                                                           */
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
+
+void pusherJoystick() {
+  // Dividing by 2 regulates the speed
+  int pusherSpeed = Controller2.Axis3.position() / 2;
+
+  // Deadband is how much leeway you give the joystick
+  double deadband = 5 / 2;
+  if (abs(pusherSpeed) <= deadband) {
+    pusherSpeed = 0;
+  }
+  Pusher.spin(vex::directionType::rev, pusherSpeed, vex::velocityUnits::pct);
+}
+
+void grabberJoystick() {
+
+  int grabberSpeed = Controller2.Axis2.position();
+  int deadband = 5;
+
+  if (abs(grabberSpeed) <= deadband) {
+    grabberSpeed = 0;
+  }
+
+  Grabbers.spin(vex::directionType::rev, grabberSpeed, vex::velocityUnits::pct);
+}
+
+void grabberButtons() {
+  //// Grabber controls
+
+  // Left, top button spins grabbers
+  // Right, top button spins grabbers in reverse
+  // Stop grabbers when buttons aren't pressed
+  if (Controller2.ButtonR1.pressing()) {
+    // Left and Right grabbers run forward when pressing L1
+    Grabbers.spin(vex::directionType::rev, 55, vex::velocityUnits::pct);
+  } else if (Controller2.ButtonR2.pressing()) {
+    // Left and Right grabbers run in reverse when pressing R1
+    Grabbers.spin(vex::directionType::fwd, 55, vex::velocityUnits::pct);
+  } else {
+    // Stop motors if neither button pressed
+    grabberJoystick();
+  }
+}
+
+void armButtons() {
+  if (Controller2.ButtonL1.pressing()) {
+    // Left and Right arms move up when pressing L2
+    Arms.spin(reverse, 35, percent);
+  } else if (Controller2.ButtonL2.pressing()) {
+    // Left and Right arms move down when pressing R2
+    Arms.spin(forward, 35, percent);
+  } else {
+    // Stop motors if neither button pressed
+    Arms.stop(hold);
+  }
+}
+
+void pusherButtons() {
+  if (Controller2.ButtonX.pressing()) {
+    // Pusher moves forward
+    Pusher.spin(vex::directionType::fwd, 30, vex::velocityUnits::pct);
+  } else if (Controller2.ButtonB.pressing()) {
+    // Pusher moves back
+    Pusher.spin(vex::directionType::rev, 30, vex::velocityUnits::pct);
+  } else {
+    // Stop motor if neither button pressed
+    pusherJoystick();
+  }
+}
 
 void stackerbuttons() {
   if(Controller2.ButtonDown.pressing()){
