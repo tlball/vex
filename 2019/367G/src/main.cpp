@@ -47,20 +47,16 @@ void pre_auton(void) {
 /*                                                                           */
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
-void stacker(void) {
 
-  Drivetrain.stop(hold);
-  Pusher.spin(vex::directionType::rev, 25, vex::velocityUnits::pct);
-  Grabbers.spin(vex::directionType::fwd, 41, vex::velocityUnits::pct);
+void armsup(void) {
+  Arms.spin(vex::directionType::rev, 20, velocityUnits::pct);
+  Grabbers.spin(vex::directionType::fwd, 73, vex::velocityUnits::pct);
   wait(1000, msec);
-  Pusher.stop();
-  wait(300, msec);
-  Drivetrain.driveFor(-14, vex::distanceUnits::in);
-  Grabbers.stop();
-  wait(500, msec);
-  Pusher.spin(vex::directionType::fwd, 70, vex::velocityUnits::pct);
-  wait(500, msec);
-  Pusher.stop();
+  Arms.stop(hold);
+  wait(1000, msec);
+  Arms.spin(vex::directionType::fwd, 20, velocityUnits::pct);
+  wait(1200, msec);
+  Arms.stop(hold);
 }
 
 void pickerupper(void) {
@@ -77,15 +73,20 @@ void pickerupper(void) {
   wait(300, msec);
 }
 
-void armsup(void) {
-  Arms.spin(vex::directionType::rev, 20, velocityUnits::pct);
-  Grabbers.spin(vex::directionType::fwd, 73, vex::velocityUnits::pct);
+void stacker(void) {
+
+  Drivetrain.stop(hold);
+  Pusher.spin(vex::directionType::rev, 25, vex::velocityUnits::pct);
+  Grabbers.spin(vex::directionType::fwd, 41, vex::velocityUnits::pct);
   wait(1000, msec);
-  Arms.stop(hold);
-  wait(1000, msec);
-  Arms.spin(vex::directionType::fwd, 20, velocityUnits::pct);
-  wait(1200, msec);
-  Arms.stop(hold);
+  Pusher.stop();
+  wait(300, msec);
+  Drivetrain.driveFor(-14, vex::distanceUnits::in);
+  Grabbers.stop();
+  wait(500, msec);
+  Pusher.spin(vex::directionType::fwd, 70, vex::velocityUnits::pct);
+  wait(500, msec);
+  Pusher.stop();
 }
 
 void autonomous(void) {
