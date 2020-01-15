@@ -77,12 +77,11 @@ void pickerupper(void) {
 int stacker(void) {
 
   Drivetrain.stop(hold);
-  Grabbers.spin(vex::directionType::fwd, 41, vex::velocityUnits::pct);
-  wait(100, msec);
   Pusher.spin(vex::directionType::rev, 25, vex::velocityUnits::pct);
+  Grabbers.spin(vex::directionType::fwd, 41, vex::velocityUnits::pct);
   wait(1000, msec);
   Pusher.stop();
-  wait(300, msec);
+  wait(500, msec);
   Drivetrain.driveFor(-14, vex::distanceUnits::in);
   Grabbers.stop();
   wait(500, msec);
