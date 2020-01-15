@@ -65,10 +65,11 @@ void pickerupper(void) {
   Drivetrain.stop(hold);
   wait(500, msec);
   Grabbers.stop();
-  // Drivetrain.driveFor(reverse, 39, inches, 50, velocityUnits::pct, true);
-  Drivetrain.turnFor(-110, vex::rotationUnits::deg, 100, vex::velocityUnits::pct, false);
+  Drivetrain.driveFor(reverse, 5, inches, 50, velocityUnits::pct, true);
+  Drivetrain.turnFor(-120, vex::rotationUnits::deg, 100, vex::velocityUnits::pct, true);
+  wait(300, msec);
   Drivetrain.setTimeout(2, sec);
-  Drivetrain.driveFor(forward, 27, inches, 73, velocityUnits::pct, true);
+  Drivetrain.driveFor(forward, 25, inches, 33, velocityUnits::pct, true);
   Drivetrain.stop(hold);
   wait(300, msec);
 }
