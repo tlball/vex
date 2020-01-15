@@ -195,8 +195,7 @@ void pusherButtons() {
   }
 }
 
-void stackerbuttons() {
-  vex::task stackingTask;
+void stackerbuttons(vex::task stackingTask) {
 
   if(Controller2.ButtonDown.pressing()){
     stackingTask = vex::task(stacker);
@@ -211,6 +210,7 @@ void stackerbuttons() {
 
 void usercontrol(void) {
   // User control code here, inside the loop
+  vex::task stackingTask;
   while (1) {
     // This is the main execution loop for the user control program.
     // Each time through the loop your program should update motor + servo
@@ -221,7 +221,7 @@ void usercontrol(void) {
     // update your motors, etc.
     // ........................................................................
     
-    stackerbuttons();
+    stackerbuttons(stackingTask);
     grabberButtons();
     armButtons();
     pusherButtons();
