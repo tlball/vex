@@ -73,7 +73,7 @@ void pickerupper(void) {
   wait(300, msec);
 }
 
-void stacker(void) {
+int stacker(void) {
 
   Drivetrain.stop(hold);
   Grabbers.spin(vex::directionType::fwd, 41, vex::velocityUnits::pct);
@@ -88,6 +88,7 @@ void stacker(void) {
   Pusher.spin(vex::directionType::fwd, 70, vex::velocityUnits::pct);
   wait(500, msec);
   Pusher.stop();
+  return 0;
 }
 
 void autonomous(void) {
@@ -195,8 +196,16 @@ void pusherButtons() {
 }
 
 void stackerbuttons() {
+  vex::task stackingTask;
+
   if(Controller2.ButtonDown.pressing()){
-    stacker();
+    stackingTask = vex::task(stacker);
+  }
+  if(Controller2.ButtonUp.pressing()){
+    stackingTask.stop();
+    Drivetrain.stop();
+    Pusher.stop();
+    Grabbers.stop();
   }
 }
 
