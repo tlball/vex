@@ -97,10 +97,17 @@ void autonomous(void) {
   // Drivetrain.driveFor(forward, 36, inches, 50, velocityUnits::pct, true);
   // Arms.spinFor(reverse, 5, rotationUnits::rev, 75, velocityUnits::pct);
   // Grabbers.spinFor(forward, 5, rotationUnits::rev, 75, velocityUnits::pct);
+  Controller1.Screen.clearScreen();
+  Controller2.Screen.clearScreen();
+  Controller1.Screen.print(Drivetrain.temperature(percent));
+  Controller2.Screen.print(Drivetrain.temperature(percent));
+  Controller1.Screen.newLine();
+  Controller2.Screen.newLine();
   armsup();
   pickerupper();
   stacker();
-
+  Controller1.Screen.print(Drivetrain.temperature(percent));
+  Controller2.Screen.print(Drivetrain.temperature(percent));
   //// Current working autonomous
   // Drivetrain.setDriveVelocity(75, percent);
   // Drivetrain.driveFor(25, vex::distanceUnits::in);
