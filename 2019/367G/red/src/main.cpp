@@ -69,7 +69,7 @@ void pickerupper(void) {
   Drivetrain.turnFor(120, vex::rotationUnits::deg, 100, vex::velocityUnits::pct, true);
   wait(300, msec);
   Drivetrain.setTimeout(2, sec);
-  Drivetrain.driveFor(forward, 30, inches, 33, velocityUnits::pct, true);
+  Drivetrain.driveFor(forward, 5, inches, 33, velocityUnits::pct, true);
   Drivetrain.stop(hold);
   wait(300, msec);
 }
