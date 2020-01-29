@@ -50,6 +50,7 @@ void pre_auton(void) {
 
 void armsup(void) {
   Arms.spin(vex::directionType::rev, 20, velocityUnits::pct);
+  wait(500, msec);
   Grabbers.spin(vex::directionType::fwd, 73, vex::velocityUnits::pct);
   wait(1000, msec);
   Arms.stop(hold);
@@ -68,7 +69,7 @@ void pickerupper(void) {
   Drivetrain.turnFor(150, vex::rotationUnits::deg, 100, vex::velocityUnits::pct, true);
   wait(300, msec);
   Drivetrain.setTimeout(2, sec);
-  Drivetrain.driveFor(forward, 23, inches, 33, velocityUnits::pct, true);
+  Drivetrain.driveFor(forward, 27, inches, 33, velocityUnits::pct, true);
   Drivetrain.stop(hold);
   Grabbers.stop();
   wait(300, msec);
