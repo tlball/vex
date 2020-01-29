@@ -60,15 +60,15 @@ void armsup(void) {
 }
 
 void pickerupper(void) {
-  Grabbers.spin(vex::directionType::rev, 55, vex::velocityUnits::pct);
+  Grabbers.spin(vex::directionType::rev, 65, vex::velocityUnits::pct);
   Drivetrain.driveFor(forward, 45, inches, 30, velocityUnits::pct, true);
   Drivetrain.stop(hold);
   wait(500, msec);
   Drivetrain.driveFor(reverse, 10, inches, 50, velocityUnits::pct, true);
-  Drivetrain.turnFor(120, vex::rotationUnits::deg, 100, vex::velocityUnits::pct, true);
+  Drivetrain.turnFor(150, vex::rotationUnits::deg, 100, vex::velocityUnits::pct, true);
   wait(300, msec);
   Drivetrain.setTimeout(2, sec);
-  Drivetrain.driveFor(forward, 20, inches, 33, velocityUnits::pct, true);
+  Drivetrain.driveFor(forward, 23, inches, 33, velocityUnits::pct, true);
   Drivetrain.stop(hold);
   Grabbers.stop();
   wait(300, msec);
@@ -77,17 +77,17 @@ void pickerupper(void) {
 int stacker(void) {
 
   Drivetrain.stop(hold);
-  Pusher.spin(vex::directionType::rev, 25, vex::velocityUnits::pct);
   Grabbers.spin(vex::directionType::fwd, 41, vex::velocityUnits::pct);
+  Pusher.spin(vex::directionType::rev, 25, vex::velocityUnits::pct);
   wait(1000, msec);
   Pusher.stop();
-  wait(500, msec);
-  Drivetrain.driveFor(-14, vex::distanceUnits::in);
-  Grabbers.stop();
   wait(500, msec);
   Pusher.spin(vex::directionType::fwd, 70, vex::velocityUnits::pct);
   wait(500, msec);
   Pusher.stop();
+  Drivetrain.driveFor(-14, vex::distanceUnits::in);
+  Grabbers.stop();
+  wait(500, msec);
   return 0;
 }
 
