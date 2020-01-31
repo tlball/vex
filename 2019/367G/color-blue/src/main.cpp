@@ -55,7 +55,9 @@ void armsup(void) {
   wait(1000, msec);
   Arms.stop(hold);
   wait(1000, msec);
-  Arms.spin(vex::directionType::fwd, 20, velocityUnits::pct);
+  Grabbers.stop();
+  Grabbers.spin(vex::directionType::rev, 65, vex::velocityUnits::pct);
+  Arms.spin(vex::directionType::fwd, 27, velocityUnits::pct);
   wait(1200, msec);
   Arms.stop(hold);
 }
