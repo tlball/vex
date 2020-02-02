@@ -63,12 +63,12 @@ void armsup(void) {
 }
 
 void pickerupper(void) {
-  Grabbers.spin(vex::directionType::rev, 55, vex::velocityUnits::pct);
-  Drivetrain.driveFor(forward, 39, inches, 20, velocityUnits::pct, true);
+  Grabbers.spin(vex::directionType::rev, 63, vex::velocityUnits::pct);
+  Drivetrain.driveFor(forward, 39, inches, 33, velocityUnits::pct, true);
   Drivetrain.stop(hold);
   wait(500, msec);
   Drivetrain.driveFor(reverse, 5, inches, 50, velocityUnits::pct, true);
-  Drivetrain.turnFor(-150, vex::rotationUnits::deg, 100, vex::velocityUnits::pct, true);
+  Drivetrain.turnFor(-120, vex::rotationUnits::deg, 100, vex::velocityUnits::pct, true);
   wait(300, msec);
   Drivetrain.setTimeout(2, sec);
   Drivetrain.driveFor(forward, 25, inches, 33, velocityUnits::pct, true);
