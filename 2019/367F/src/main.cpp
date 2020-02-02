@@ -311,10 +311,13 @@ void autonomous(void) {
   // ..........................................................................
   // Insert autonomous user code here.
   // ..........................................................................
+ 
+//   Drivetrain.driveFor(24, inches);
+//  Drivetrain.turnFor(-99, deg);
+ 
   Drivetrain.driveFor(14, inches);
-
-
   Drivetrain.driveFor(-6, inches);
+ Drivetrain.turnFor(-90, degrees);
   }
 
 /*---------------------------------------------------------------------------*/
