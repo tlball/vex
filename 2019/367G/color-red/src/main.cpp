@@ -50,11 +50,14 @@ void pre_auton(void) {
 
 void armsup(void) {
   Arms.spin(vex::directionType::rev, 20, velocityUnits::pct);
+  wait(500, msec);
   Grabbers.spin(vex::directionType::fwd, 73, vex::velocityUnits::pct);
   wait(1000, msec);
   Arms.stop(hold);
   wait(1000, msec);
-  Arms.spin(vex::directionType::fwd, 20, velocityUnits::pct);
+  Grabbers.stop();
+  Grabbers.spin(vex::directionType::rev, 65, vex::velocityUnits::pct);
+  Arms.spin(vex::directionType::fwd, 27, velocityUnits::pct);
   wait(1200, msec);
   Arms.stop(hold);
 }
